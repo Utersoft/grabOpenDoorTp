@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Class/Script/Engine.Actor"
 #include "grab.generated.h"
 
 UCLASS()
@@ -21,25 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	float Reach = 100.f;
-
-	UPROPERTY()
-		UPhysicsHandleComponent* PhysicsHandle = nullptr;
-	UPROPERTY()
-		UInputComponent* InputComponent = nullptr;
-
-	void Grab();
-	void Release();
-	void FindPhysicsHandle();
-	void SetupInputComponent();
-
-	//Return the first actor within reach with physcis body
-	FHitResult GetFirstPhysicsBodyInReach() const;
-
-	//Return the line trace end
-	FVector GetPlayersReach() const;
-
-	//Get players Position in World
-	FVector GetPlayersWorldPos() const;
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 };
